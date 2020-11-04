@@ -402,13 +402,13 @@ h1, h2, h3, h4, p {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: calc((100% - 5 * 30px)/6);
   height: 90px;  
   color: var(--client-border-color);
   border-color: var(--client-border-color);
   border-style: solid;
   border-width: 1px;
   border-radius: 4px;
+  width: calc((100% - 5 * 30px)/6);
 }
 
 .clients-list .item + .item {
@@ -521,16 +521,16 @@ h1, h2, h3, h4, p {
   color: var(--primary-white-color);
 }
 
-.footer .link {
+.footer-social .link {
   background-color: var(--secondary-grey-color);
 }
 
-.footer .link {
+.footer-social .link {
   color: var(--primary-white-color);
 }
 
-.footer .link:hover,
-.footer .link:focus {
+.footer-social .link:hover,
+.footer-social .link:focus {
   color: var(--primary-white-color);
   background-color: var(--accent-color);
 }
