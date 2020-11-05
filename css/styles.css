@@ -38,6 +38,8 @@
   --secondary-btn-bg-color: #F5F4FA;
   --bg-color: #2F303A;
   --bg-overlay: rgba(47, 48, 58, 0.4);
+  --bg-overlay-dark: rgba(47, 48, 58, 0.8);
+  --bg-overlay-blue: rgba(33, 150, 243, 0.9);
   --client-border-color: #AFB1B8;
 }
 
@@ -129,6 +131,7 @@ h1, h2, h3, h4, p {
 
 /* навигация  */
 .site-nav .item {
+  position: relative;
   padding-top: 32px;
   padding-bottom: 32px;
 }
@@ -146,8 +149,19 @@ h1, h2, h3, h4, p {
   color: var(--accent-color);
 }
 
-.site-nav .open-page {
+.open-page {
   color: var(--accent-color);
+}
+
+.open-page::after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  content: "";
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--accent-color);
 }
 
 /* линки контактов */
@@ -287,7 +301,8 @@ h1, h2, h3, h4, p {
 }
 
 .services-list .item {
-  width: calc(100% - 2 * 30px)/3;
+  position: relative;
+  width: calc((100% - 2 * 30px)/3);
 }
 
 .services-list .item:not(:nth-child(3n)){
@@ -299,6 +314,26 @@ h1, h2, h3, h4, p {
   font-size: 36px;
   line-height: 1.17;
   text-align: center;
+}
+
+.services-list .subtitle {
+  margin-bottom: 0;
+  padding-top: 27px;
+  padding-bottom: 27px; 
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16px;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--primary-white-color);
+}
+
+.subtitle-thumb {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: var(--bg-overlay-dark);
+  width: 100%;
 }
 
 /* команда */
@@ -399,6 +434,10 @@ h1, h2, h3, h4, p {
 }
 
 .clients-list .item {
+  width: calc((100% - 5 * 30px)/6);
+}
+
+.clients-list .link {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -408,7 +447,6 @@ h1, h2, h3, h4, p {
   border-style: solid;
   border-width: 1px;
   border-radius: 4px;
-  width: calc((100% - 5 * 30px)/6);
 }
 
 .clients-list .item + .item {
@@ -457,8 +495,8 @@ h1, h2, h3, h4, p {
   fill: currentColor;
 }
 
-.clients-list .item:hover,
-.clients-list .item:focus-within {
+.clients-list .link:hover,
+.clients-list .link:focus {
   border-color: var(--accent-color);
   color: var(--accent-color);
 }
@@ -596,27 +634,48 @@ h1, h2, h3, h4, p {
   flex-wrap: wrap;
 }
 
-.works-list .item {
+.work-card {
   width: calc((100% - 2 * 30px)/3);
   margin-right: 30px;
   margin-bottom: 30px;
 }
 
-.works-list .item:nth-child(3n){
+.work-card:nth-child(3n){
   margin-right: 0;
 }
 
-.works-list .item:nth-last-child(-n+3){
+.work-card:nth-last-child(-n+3){
   margin-bottom: 0;
 }
 
-.works-list .item:hover,
-.works-list .item:focus-within {
+.image-thumb {
+  position: relative;
+}
+
+.text-desc {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  padding: 63px 24px;
+  background-color: var(--bg-overlay-blue);
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--primary-white-color);
+  opacity: 0;
+}
+
+.work-card:hover,
+.work-card:focus-within {
   box-shadow: 
     0px 1px 1px rgba(0, 0, 0, 0.12), 
     0px 4px 4px rgba(0, 0, 0, 0.06), 
     1px 4px 6px rgba(0, 0, 0, 0.16);
     
+}
+.work-card:hover .text-desc {
+  opacity: 1;
 }
 
 .work-desc{
